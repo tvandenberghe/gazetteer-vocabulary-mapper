@@ -1,0 +1,17 @@
+darwin:
+  type: "postgres"
+  jdbc: "jdbc:postgresql://<host>:5432/<nameofthedatabase1>?currentSchema=<schemas>"
+  user: "john"
+  password: "password123"
+idod:
+  type: "oracle"
+  database: "nameofthedatabase2"
+  host: "test.youtu.be"
+  user: "john"
+  password: "password123"
+mm:
+  type: "oracle"
+  database: "nameofthedatabase3"
+  host: "test.youtu.be"
+  user: "john"
+  password: "password123"
