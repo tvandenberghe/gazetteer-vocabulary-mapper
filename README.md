@@ -28,4 +28,5 @@ Sample output for the last query will be:
 	Writing to csv: Moorsel (type: ADMD): 2790736: Moorsel (country: BE; localName: Moorsel;type: PPL; match type: FIRST_HIT_FIRST_HIT) 
 	Writing to csv: Dole (type: PPL): 3021263: Dole (country: FR; localName: Dole;type: PPLA3; match type: EXACT_NO_TYPE_MATCH) ; 3005776: Lavans-lès-Dole (country: FR; localName: Lavans-lès-Dole;type: PPL; match type: PARTIAL_EXACT_TYPE_
 
-
+## Output
+A csv file with the mapped taxa/placenames
