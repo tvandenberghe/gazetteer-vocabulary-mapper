@@ -1,4 +1,6 @@
-# A library to match csv files against vocabulary lists, such as gazetteers and taxonomic backbones. Implemented are GeoNames and WoRMS.
+# A library to match csv files against vocabularies
+
+This java library maps to gazetteers and taxonomic backbones. Currently implemented are GeoNames, Marine Regions and WoRMS.
 
 ## Get the source or binaries
 For nontechnical users, the easiest is to get the release binary and download the properties.yaml.example file.
