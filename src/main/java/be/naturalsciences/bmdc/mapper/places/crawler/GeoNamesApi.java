@@ -26,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import be.naturalsciences.bmdc.mapper.places.model.GazetteerPlace;
+import be.naturalsciences.bmdc.utils.JsonUtils;
 
 /**
  *
@@ -99,7 +100,7 @@ public class GeoNamesApi extends GazetteerApi {
                 Logger.getLogger(GeoNamesApi.class.getName()).log(Level.WARNING, "Web service limit exceeded. Sleeping for " + NUMBER_OF_MINUTES + " minutes. (" + url + ")");
                 sleep();
             }
-            String json = FileUtils.readJsonFromUrl(url);
+            String json = JsonUtils.readJsonStringFromUrl(url);
             if (json != null && !json.equals("")) {
                 List<GazetteerPlace> searchResults = new ArrayList<>(); //order is important
                 if (json.contains("\"value\":19")) {

@@ -5,7 +5,6 @@
  */
 package be.naturalsciences.bmdc.mapper.taxa.general;
 
-import be.naturalsciences.bmdc.mapper.taxa.model.WormsCSVTaxon;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.IOException;

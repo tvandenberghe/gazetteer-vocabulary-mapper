@@ -22,10 +22,8 @@ import be.naturalsciences.bmdc.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import be.naturalsciences.bmdc.mapper.places.model.GazetteerPlace;
-import gnu.trove.THashMap;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 
 /**
  *

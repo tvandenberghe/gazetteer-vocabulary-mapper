@@ -7,7 +7,6 @@ package be.naturalsciences.bmdc.mapper.general;
 
 import be.naturalsciences.bmdc.mapper.general.QueryScenario;
 import java.util.List;
-import java.util.Set;
 
 /**
  *

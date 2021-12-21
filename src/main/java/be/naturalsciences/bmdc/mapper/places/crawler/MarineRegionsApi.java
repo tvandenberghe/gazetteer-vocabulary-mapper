@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import be.naturalsciences.bmdc.mapper.places.model.GazetteerPlace;
+import be.naturalsciences.bmdc.utils.JsonUtils;
 
 /**
  *
@@ -45,7 +46,7 @@ public class MarineRegionsApi extends GazetteerApi {
     @Override
     public synchronized /*Map<String, List<GazetteerGeoName>>*/ List<GazetteerPlace> getEntries(URL url) throws MappingException {
         try {
-            String json = FileUtils.readJsonFromUrl(url);
+            String json = JsonUtils.readJsonStringFromUrl(url);
 
             if (json != null && !json.equals("")) {
                 Type listType = new TypeToken<List<MarineRegion>>() {

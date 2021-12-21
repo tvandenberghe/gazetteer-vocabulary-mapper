@@ -20,7 +20,6 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import org.apache.commons.cli.CommandLine;
@@ -249,6 +248,10 @@ public class Start {
                     IdodImportPrep idodPrep = new IdodImportPrep();
                     QueryScenario idodScenario = getScenario("idod");
                     idodPrep.start(inputPath, idodScenario);
+                    break;
+                case "":
+                    iterator = CSVReader.iterator(inputPath, LocalTaxon.class);
+                    runTaxonomicBackbone(target, iterator, append);
                     break;
             }
         }

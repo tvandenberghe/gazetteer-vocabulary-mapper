@@ -119,6 +119,7 @@ public class GazetteerCrawlerTest {
     }
 
     @Test
+    @Ignore
     public void testFullImportFile3() throws Exception {
         String[] args = new String[]{"-target", "geonames", "-origin_db", "darwin", "-size", "50"};
         try {

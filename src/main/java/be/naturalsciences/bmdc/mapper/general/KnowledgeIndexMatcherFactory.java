@@ -44,7 +44,9 @@ public class KnowledgeIndexMatcherFactory {
             Set<LocalTaxon> taxa = (Set) entries;
             switch (type) {
                 case "gbif":
-                // knowledgeMatcher = new TaxonomicalBackboneMatcher(entries, new GbifApi());
+//                    knowledgeMatcher = new TaxonomicalBackboneMatcher(entries, new GbifApi());
+                    System.out.println("Sorry, GBIF mapping is not implemented.");
+                    break;
                 case "worms":
                     knowledgeMatcher = new TaxonomicalBackboneMatcher(taxa, new WormsApi());
                     break;

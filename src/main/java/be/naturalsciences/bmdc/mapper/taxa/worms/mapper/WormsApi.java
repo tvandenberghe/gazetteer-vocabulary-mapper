@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import be.naturalsciences.bmdc.mapper.places.model.GazetteerPlace;
 import be.naturalsciences.bmdc.mapper.taxa.model.LocalTaxon;
 import be.naturalsciences.bmdc.mapper.taxa.model.WormsMatchType;
+import be.naturalsciences.bmdc.utils.JsonUtils;
 
 /**
  *
@@ -65,7 +66,7 @@ public class WormsApi implements TaxonomicalBackboneApi {
         String json = null;
         if (StringUtils.isNumeric(nameOrAphiaIDToTest)) {
             try {
-                json = "[" + FileUtils.readJsonFromUrl("http://www.marinespecies.org/rest/AphiaRecordByAphiaID/" + nameOrAphiaIDToTest) + "]";
+                json = "[" + JsonUtils.readJsonStringFromUrl("http://www.marinespecies.org/rest/AphiaRecordByAphiaID/" + nameOrAphiaIDToTest) + "]";
             } catch (IOException ex) {
                 if (ex.getMessage().contains("502")) {
                     Logger.getLogger(WormsApi.class.getName()).log(Level.SEVERE, "IOException with 502. Retry: call WORMS web service again.");
@@ -75,9 +76,9 @@ public class WormsApi implements TaxonomicalBackboneApi {
         } else {
             try {
                 if (!fuzzy) {
-                    json = FileUtils.readJsonFromUrl("http://www.marinespecies.org/rest/AphiaRecordsByName/" + nameOrAphiaIDToTest);
+                    json =  JsonUtils.readJsonStringFromUrl("http://www.marinespecies.org/rest/AphiaRecordsByName/" + nameOrAphiaIDToTest);
                 } else {
-                    json = FileUtils.readJsonFromUrl("http://www.marinespecies.org/rest/AphiaRecordsByMatchNames?scientificnames[]=" + nameOrAphiaIDToTest + "&marine_only=false").replaceAll("^\\[\\[", "[").replaceAll("\\]\\]$", "]");
+                    json =  JsonUtils.readJsonStringFromUrl("http://www.marinespecies.org/rest/AphiaRecordsByMatchNames?scientificnames[]=" + nameOrAphiaIDToTest + "&marine_only=false").replaceAll("^\\[\\[", "[").replaceAll("\\]\\]$", "]");
                 }
             } catch (IOException ex) {
                 if (ex.getMessage().contains("502")) {
@@ -117,7 +118,7 @@ public class WormsApi implements TaxonomicalBackboneApi {
         String json = null;
         if (StringUtils.isNumeric(AphiaID)) {
             try {
-                json = FileUtils.readJsonFromUrl(url);
+                json =  JsonUtils.readJsonStringFromUrl(url);
                 String parentAphia = null;
                 List<String> matcher = StringUtils.getRegexGroupResults(json, Pattern.compile(":(\\d*),"));
                 for (int i = 0; i < matcher.size(); i++) {

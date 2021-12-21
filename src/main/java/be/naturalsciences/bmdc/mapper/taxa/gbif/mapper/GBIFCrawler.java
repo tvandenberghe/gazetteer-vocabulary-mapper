@@ -6,6 +6,7 @@
 package be.naturalsciences.bmdc.mapper.taxa.gbif.mapper;
 
 import be.naturalsciences.bmdc.utils.FileUtils;
+import be.naturalsciences.bmdc.utils.JsonUtils;
 import com.jayway.jsonpath.JsonPath;
 import java.io.IOException;
 import java.sql.Connection;
@@ -33,7 +34,7 @@ public class GBIFCrawler {
         PreparedStatement insertSpeciesStmt = connection.prepareStatement(insertSpeciesMappingSQL);
         for (int i = 1; i < 50; i++) {
             String url = "http://api.gbif.org/v1/species/search?limit=" + i + "000&offset=" + i + "000&habitat=MARINE&rank=genus&datasetKey=2d59e5db-57ad-41ff-97d6-11f5fb264527";
-            String json = FileUtils.readJsonFromUrl(url);
+            String json = JsonUtils.readJsonStringFromUrl(url);
             Logger.getLogger(GBIFCrawler.class.getName()).log(Level.INFO, url);
             int length = Integer.parseInt(cleanupJsonResult(JsonPath.read(json, "$..results.length()").toString()));
 //            Logger.getLogger(GBIFCrawler.class.getName()).log(Level.INFO, Integer.toString(length));
